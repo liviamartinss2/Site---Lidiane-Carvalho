@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lidiane Carvalho — Sobrancelhas</title>
+  <meta name="description" content="Agende seu atendimento de design de sobrancelhas com a Lidiane Carvalho. Rápido, bonito e prático via WhatsApp com lembrete no calendário."/>
+  <style>
+    :root{
+      /* Paleta inspirada nas imagens enviadas (mauve/rose + creme) */
+      --bg: #F4EFE9;          /* creme */
+      --bg-2: #F8F1F4;        /* blush clarinho */
+      --text: #3A2A2D;        /* marrom frio profundo */
+      --muted: #6B5A5E;       /* texto suave */
+      --brand-1: #8E4B5A;     /* mauve vinho */
+      --brand-2: #C77B8C;     /* rose */
+      --line: rgba(58,42,45,.12);
+      --radius: 22px;
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial;
+      background:
+        radial-gradient(60% 80% at 0% 0%, #F9E6EC 0%, transparent 60%),
+        radial-gradient(60% 80% at 100% 100%, #F2E7DE 0%, transparent 60%),
+        var(--bg);
+    }
+    a{color:inherit}
+    .container{max-width:980px; margin:0 auto; padding:26px}
+
+    header{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:6px 0 14px; border-bottom:1px solid var(--line)}
+    .brand{display:flex; align-items:center; gap:14px}
+    .logo{width:46px;height:46px; border-radius:14px; display:grid; place-items:center; color:#fff; font-weight:700; letter-spacing:.5px; font-family: ui-serif, Georgia, "Times New Roman", serif; font-size:20px;
+      background: conic-gradient(from 160deg, var(--brand-1), var(--brand-2)); box-shadow: 0 6px 18px rgba(199,123,140,.35);
+      border:1px solid rgba(255,255,255,.55)
+    }
+    .brand h1{font-size:18px; margin:0}
+    .chip{font-size:12px; padding:6px 10px; border-radius:999px; background:linear-gradient(180deg, #F6E7EB, #F2E9EC); color:#5C4046; border:1px solid #EBD6DB}
+
+    .hero{display:grid; grid-template-columns: 1.1fr .9fr; gap:28px; align-items:center; padding:28px 0}
+    @media (max-width: 920px){ .hero{grid-template-columns:1fr} }
+    .hero h2{font-family: ui-serif, Georgia, "Times New Roman", serif; font-weight:600; font-size:clamp(28px, 4.6vw, 44px); line-height:1.04; margin:0 0 12px}
+    .hero p{margin:0 0 16px; color:var(--muted)}
+
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.48)); border:1px solid var(--line); backdrop-filter: blur(6px);
+      padding:20px; border-radius:var(--radius); box-shadow:var(--shadow)}
+
+    form{display:grid; gap:14px}
+    label{font-size:13px; color:#5B4950}
+    input, select, textarea{width:100%; padding:14px 14px; background:#fff; color:var(--text);
+      border:1px solid var(--line); border-radius:14px; outline:none; transition:.2s border, .2s box-shadow}
+    input:focus, select:focus, textarea:focus{border-color: #D5A7B1; box-shadow:0 0 0 4px rgba(199,123,140,.15)}
+    textarea{min-height:96px; resize:vertical}
+    .row{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:14px 18px; border-radius:12px; font-weight:600; border:1px solid transparent; cursor:pointer; text-decoration:none}
+    .btn-primary{background:linear-gradient(90deg, var(--brand-1), var(--brand-2)); color:#fff}
+    .btn-ghost{background:#fff; color:var(--text); border-color: var(--line)}
+    .btn-full{width:100%}
+
+    .services{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; margin-top:14px}
+    .service{padding:14px; border:1px solid var(--line); background:var(--bg-2); border-radius:14px}
+    .service small{color:var(--muted)}
+
+    .muted{color:var(--muted)}
+
+    footer{padding:32px 0; color:var(--muted); text-align:center; border-top:1px solid var(--line); margin-top:32px}
+
+    .photo{min-height:320px; border-radius:24px; background:
+      radial-gradient(120% 120% at 100% -10%, rgba(199,123,140,.25), transparent 60%),
+      #F6EDEF; border:1px solid var(--line); position:relative; overflow:hidden}
+    .photo img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+
+    .modal{position:fixed; inset:0; display:none; place-items:center; background:rgba(21,16,18,.45); padding:20px}
+    .modal.open{display:grid}
+    .modal-card{max-width:520px; width:100%; background:linear-gradient(180deg, #fff, #fff6); border:1px solid var(--line); border-radius:18px; padding:20px; box-shadow:var(--shadow)}
+
+    @media (max-width: 920px){
+      .services{grid-template-columns:1fr}
+      .row{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">LC</div>
+        <div>
+          <h1 id="brand">Lidiane Carvalho</h1>
+          <div class="chip" aria-label="Atendimento por agendamento">agenda aberta • hoje</div>
+        </div>
+      </div>
+      <a class="btn btn-ghost" href="#agendar">Agendar agora</a>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h2>Sobrancelhas impecáveis,<br>com leveza e elegância ✨</h2>
+        <p>Escolha o serviço, informe um horário e clique em <strong>Marcar no WhatsApp</strong>. O lembrete já sai pronto para seu calendário.</p>
+
+        <div class="services">
+          <div class="service"><strong>Design Clássico</strong><br><small>30–40 min • <b>R$ 30,00</b></small></div>
+          <div class="service"><strong>Design + Henna</strong><br><small>45–60 min • sob consulta</small></div>
+          <div class="service"><strong>Brow Lamination</strong><br><small>60–75 min • sob consulta</small></div>
+        </div>
+      </div>
+
+      <div class="card" id="agendar">
+        <form id="form">
+          <div>
+            <label for="nome">Seu nome</label>
+            <input id="nome" name="nome" type="text" placeholder="Ex.: Ana Souza" autocomplete="name" required />
+          </div>
+          <div>
+            <label for="servico">Serviço</label>
+            <select id="servico" name="servico" required>
+              <option value="" disabled selected>Selecione…</option>
+              <option>Design de Sobrancelhas</option>
+              <option>Design + Henna</option>
+              <option>Brow Lamination</option>
+              <option>Micropigmentação (consultoria)</option>
+            </select>
+          </div>
+          <div class="row">
+            <div>
+              <label for="data">Data</label>
+              <input id="data" name="data" type="date" required />
+            </div>
+            <div>
+              <label for="hora">Hora</label>
+              <input id="hora" name="hora" type="time" required />
+            </div>
+          </div>
+          <div>
+            <label for="obs">Observações (opcional)</label>
+            <textarea id="obs" name="obs" placeholder="Ex.: pele sensível, prefere sábado de manhã, etc."></textarea>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; margin: 2px 0 6px">
+            <input id="lembrar" type="checkbox" checked />
+            <label for="lembrar" class="muted">Quero receber lembrete no meu Calendário</label>
+          </div>
+
+          <button class="btn btn-primary btn-full" type="submit">Marcar no WhatsApp</button>
+          <small class="muted">* Você será direcionada(o) para o WhatsApp com a mensagem pronta. Basta enviar.</small>
+        </form>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="faq">
+      <h3 id="faq" style="margin:8px 0 6px">Dúvidas rápidas</h3>
+      <details>
+        <summary>Como recebo o lembrete?</summary>
+        <p class="muted">Após clicar em <em>Marcar no WhatsApp</em>, exibiremos botões para adicionar no Google Calendar ou baixar o arquivo <code>.ics</code>. Assim o celular te lembra na hora certa.</p>
+      </details>
+      <details>
+        <summary>Qual a localização?</summary>
+        <p class="muted">📍 <a id="mapsLink" class="muted" href="#" target="_blank" rel="noopener">Abrir no Google Maps</a></p>
+      </details>
+      <details>
+        <summary>O horário é confirmado automaticamente?</summary>
+        <p class="muted">Você envia sua preferência pelo WhatsApp e recebe a confirmação em seguida 🙌</p>
+      </details>
+    </section>
+
+    <section class="photo" aria-label="Foto de sobrancelhas (substitua pela sua imagem)">
+      <!-- Substitua o src abaixo por uma foto sua/da marca assim que hospedar -->
+      <img id="heroImg" alt="Design de sobrancelhas" src="https://images.unsplash.com/photo-1620336655052-d780c3e53b2b?q=80&w=1400&auto=format&fit=crop"/>
+    </section>
+
+    <footer>
+      <div id="endereco">R. 12, 148 - Lot. Sol Nascente, Aquiraz - CE, 61700-000</div>
+    </footer>
+  </div>
+
+  <!-- Modal pós-envio -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
+    <div class="modal-card">
+      <h3 id="m-title" style="margin: 6px 0 10px">Quase lá! ✔</h3>
+      <p class="muted" id="m-desc">Abra o WhatsApp para enviar a mensagem. Se desejar, adicione o lembrete ao seu calendário:</p>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px">
+        <a id="btn-wa" class="btn btn-primary" target="_blank" rel="noopener">Abrir no WhatsApp</a>
+        <a id="btn-gcal" class="btn btn-ghost" target="_blank" rel="noopener">Google Calendar</a>
+        <button id="btn-ics" class="btn btn-ghost" type="button">Baixar .ICS</button>
+        <button id="btn-close" class="btn" type="button" style="margin-left:auto">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 🔧 CONFIGURAÇÕES — personalize aqui
+    const WHATSAPP_NUMBER_E164 = "558581933902"; // 55 + DDD + número, só dígitos
+    const STUDIO_NOME = "Lidiane Carvalho — Sobrancelhas";
+    const STUDIO_LOCAL = "R. 12, 148 - Lot. Sol Nascente, Aquiraz - CE, 61700-000";
+    const MAPS_URL = "https://www.google.com/maps/place/Lidiane+Carvalho+-+Estudio+de+Beleza/data=!4m7!3m6!1s0x7c75f63aaab4621:0xb5c119b364c193fd!8m2!3d-3.9130158!4d-38.380513!16s%2Fg%2F11v5d_3qg9!19sChIJIUarqmNfxwcR_ZPBZLMZwbU?authuser=0&hl=en&rclk=1";
+    const DURACAO_MIN = 60; // duração padrão do atendimento
+
+    // Atualiza textos fixos
+    document.getElementById('brand').textContent = STUDIO_NOME.replace(' — Sobrancelhas','');
+    document.getElementById('mapsLink').href = MAPS_URL;
+    document.getElementById('endereco').textContent = STUDIO_LOCAL;
+
+    // utilitários
+    const $ = (sel) => document.querySelector(sel);
+    const pad = (n) => String(n).padStart(2, '0');
+    const toLocalDate = (dStr, hStr) => {
+      const [y,m,d] = dStr.split('-').map(Number);
+      const [hh,mm] = hStr.split(':').map(Number);
+      return new Date(y, (m-1), d, hh, mm, 0);
+    };
+    const toICSDate = (date) => {
+      const z = new Date(date.getTime());
+      const YYYY = z.getUTCFullYear();
+      const MM = pad(z.getUTCMonth()+1);
+      const DD = pad(z.getUTCDate());
+      const HH = pad(z.getUTCHours());
+      const MI = pad(z.getUTCMinutes());
+      const SS = pad(z.getUTCSeconds());
+      return `${YYYY}${MM}${DD}T${HH}${MI}${SS}Z`;
+    }
+    const formatBR = (date) => `${pad(date.getDate())}/${pad(date.getMonth()+1)}/${date.getFullYear()}`;
+
+    // Persistir nome
+    const nomeInput = $('#nome');
+    nomeInput.value = localStorage.getItem('nome_cli') || '';
+    nomeInput.addEventListener('change', () => localStorage.setItem('nome_cli', nomeInput.value.trim()));
+
+    // data mínima = hoje
+    const hoje = new Date();
+    $('#data').min = `${hoje.getFullYear()}-${pad(hoje.getMonth()+1)}-${pad(hoje.getDate())}`;
+
+    // submissão
+    const form = $('#form');
+    const modal = $('#modal');
+    const btnWA = $('#btn-wa');
+    const btnGCAL = $('#btn-gcal');
+    const btnICS = $('#btn-ics');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nome = $('#nome').value.trim();
+      const servico = $('#servico').value.trim();
+      const data = $('#data').value;
+      const hora = $('#hora').value;
+      const obs = $('#obs').value.trim();
+      const querLembrete = $('#lembrar').checked;
+
+      if(!nome || !servico || !data || !hora){
+        alert('Preencha nome, serviço, data e hora.');
+        return;
+      }
+
+      const start = toLocalDate(data, hora);
+      const end = new Date(start.getTime() + DURACAO_MIN*60000);
+
+      const msg = `Olá, sou ${nome}. Gostaria de agendar *${servico}* no dia ${formatBR(start)} às ${pad(start.getHours())}:${pad(start.getMinutes())}.` + (obs ? `
+Observações: ${obs}` : '') + `
+
+Enviado via site.`;
+      const waURL = `https://wa.me/${WHATSAPP_NUMBER_E164}?text=${encodeURIComponent(msg)}`;
+
+      // Google Calendar
+      const gDates = `${toICSDate(start)}/${toICSDate(end)}`;
+      const gcal = new URL('https://calendar.google.com/calendar/render');
+      gcal.searchParams.set('action', 'TEMPLATE');
+      gcal.searchParams.set('text', `${servico} — ${STUDIO_NOME}`);
+      gcal.searchParams.set('dates', gDates);
+      const details = `Atendimento: ${servico}%0ACliente: ${encodeURIComponent(nome)}${obs ? `%0AObs.: ${encodeURIComponent(obs)}`: ''}`;
+      gcal.searchParams.set('details', details);
+      gcal.searchParams.set('location', STUDIO_LOCAL);
+
+      // popular botões do modal
+      btnWA.href = waURL;
+      btnGCAL.href = gcal.toString();
+      btnICS.onclick = () => downloadICS({
+        title: `${servico} — ${STUDIO_NOME}`,
+        description: `Cliente: ${nome}${obs ? `
+Obs.: ${obs}`: ''}`,
+        location: STUDIO_LOCAL,
+        start,
+        end
+      });
+
+      // abrir modal e (opcionalmente) focar WhatsApp
+      modal.classList.add('open');
+      if(!querLembrete){
+        window.open(waURL, '_blank');
+      }
+    });
+
+    $('#btn-close').addEventListener('click', () => modal.classList.remove('open'));
+    document.getElementById('modal').addEventListener('click', (e) => { if(e.target === modal) modal.classList.remove('open'); });
+
+    function downloadICS({title, description, location, start, end}){
+      const dtstamp = toICSDate(new Date());
+      const uid = (crypto.randomUUID ? crypto.randomUUID() : (Date.now()+Math.random()).toString(36)) + '@lidiane-carvalho';
+      const ics = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//LidianeCarvalho//Agenda//PT-BR',
+        'CALSCALE:GREGORIAN',
+        'BEGIN:VEVENT',
+        `UID:${uid}`,
+        `DTSTAMP:${dtstamp}`,
+        `DTSTART:${toICSDate(start)}`,
+        `DTEND:${toICSDate(end)}`,
+        `SUMMARY:${title}`,
+        `DESCRIPTION:${description.replace(/
+/g,'\n')}`,
+        `LOCATION:${location}`,
+        'END:VEVENT',
+        'END:VCALENDAR'
+      ].join('
+');
+
+      const blob = new Blob([ics], {type: 'text/calendar;charset=utf-8'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'agendamento-lidiane-carvalho.ics';
+      document.body.appendChild(a);
+      a.click();
+      URL.revokeObjectURL(a.href);
+      a.remove();
+    }
+  </script>
+</body>
+</html>
