@@ -273,7 +273,11 @@ Enviado via site.`;
       gcal.searchParams.set('location', STUDIO_LOCAL);
 
       // popular botões do modal
-      btnWA.href = waURL;
+        btnWA.href = waURL;
+        btnWA.onclick = (ev) => {
+          ev.preventDefault();
+          window.open(waURL, '_blank');
+        };
       btnGCAL.href = gcal.toString();
       btnICS.onclick = () => downloadICS({
         title: `${servico} — ${STUDIO_NOME}`,
