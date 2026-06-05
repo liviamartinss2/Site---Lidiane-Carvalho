@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getMetricasDashboard } from "@/lib/admin-data";
-import { formatBRL, formatHora, formatTelefone } from "@/lib/format";
+import { formatBRL, formatData, formatHora, formatTelefone } from "@/lib/format";
 import { config } from "@/lib/config";
 
 export const dynamic = "force-dynamic";
@@ -92,6 +92,7 @@ export default async function DashboardPage() {
                 </p>
               </div>
               <div className="text-right">
+                <p className="text-xs text-ink-muted">{formatData(a.inicio)}</p>
                 <p className="font-serif text-rose-wine">{formatHora(a.inicio)}</p>
                 <p className="text-xs text-ink-muted">{formatBRL(a.valor_cobrado)}</p>
               </div>

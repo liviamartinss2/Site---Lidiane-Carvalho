@@ -7,6 +7,7 @@ import { logout } from "@/app/admin/login/actions";
 const itens = [
   { href: "/admin", label: "Dashboard", icon: "◧" },
   { href: "/admin/agenda", label: "Agenda", icon: "▦" },
+  { href: "/admin/bloqueios", label: "Bloqueios", icon: "⛔" },
   { href: "/admin/clientes", label: "Clientes & CRM", icon: "♥" },
   { href: "/admin/financeiro", label: "Financeiro", icon: "₿" },
   { href: "/admin/servicos", label: "Serviços", icon: "✶" },
