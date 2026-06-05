@@ -17,7 +17,7 @@ const exemplos = [
 
 export default function ResultadosPage() {
   return (
-    <div className="mx-auto max-w-6xl px-6 py-12">
+    <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
       <div className="mb-10 text-center">
         <span className="text-sm font-semibold uppercase tracking-wide text-gold-dark">
           Galeria

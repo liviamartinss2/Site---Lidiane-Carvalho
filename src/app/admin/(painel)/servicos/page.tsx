@@ -8,7 +8,7 @@ export default async function ServicosAdminPage() {
 
   return (
     <div>
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h1 className="h-serif text-3xl">Serviços</h1>
           <p className="text-ink-muted">Gerencie valores e durações dos procedimentos.</p>
@@ -18,8 +18,8 @@ export default async function ServicosAdminPage() {
         </button>
       </div>
 
-      <div className="mt-6 overflow-hidden rounded-xl2 border border-line bg-white shadow-soft">
-        <table className="w-full text-left text-sm">
+      <div className="mt-6 overflow-x-auto rounded-xl2 border border-line bg-white shadow-soft">
+        <table className="w-full min-w-[560px] text-left text-sm">
           <thead className="bg-rose-soft text-ink-soft">
             <tr>
               <th className="px-4 py-3 font-semibold">Serviço</th>

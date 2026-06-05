@@ -1,7 +1,10 @@
 import { createClient } from "@/lib/supabase/server";
 import { supabaseConfigurado } from "@/lib/data";
 import { config } from "@/lib/config";
-import type { AgendamentoDetalhado, Cliente } from "@/lib/types";
+import type { AgendamentoDetalhado, Bloqueio, Cliente } from "@/lib/types";
+
+const SELECT_AGENDAMENTO =
+  "id, inicio, fim, status, valor_cobrado, origem, observacoes, criado_em, cliente_id, servico_id, cliente:clientes(id,nome,telefone), servico:servicos(id,nome,duracao_min)";
 
 export interface MetricasDashboard {
   atendHoje: number;
@@ -254,4 +257,41 @@ export async function getClientesCRM(): Promise<ClienteCRM[]> {
     .select("*")
     .order("ultimo_atendimento", { ascending: false, nullsFirst: false });
   return ((data ?? []) as Cliente[]).map(calc);
+}
+
+/**
+ * Agendamentos dentro de um intervalo (usado pela agenda nos modos
+ * dia / semana / mês). Recebe e compara datas em ISO (UTC).
+ */
+export async function getAgendaIntervalo(
+  deISO: string,
+  ateISO: string
+): Promise<AgendamentoDetalhado[]> {
+  if (!supabaseConfigurado()) {
+    return demoAgendamentos().filter(
+      (a) => a.inicio >= deISO && a.inicio <= ateISO
+    );
+  }
+  const supabase = createClient();
+  const { data } = await supabase
+    .from("agendamentos")
+    .select(SELECT_AGENDAMENTO)
+    .gte("inicio", deISO)
+    .lte("inicio", ateISO)
+    .order("inicio", { ascending: true });
+  return (data ?? []) as unknown as AgendamentoDetalhado[];
+}
+
+/** Bloqueios de agenda futuros (folgas, almoço, compromissos, feriados) */
+export async function getBloqueios(): Promise<Bloqueio[]> {
+  if (!supabaseConfigurado()) return [];
+  const supabase = createClient();
+  const inicioHoje = new Date();
+  inicioHoje.setHours(0, 0, 0, 0);
+  const { data } = await supabase
+    .from("bloqueios")
+    .select("*")
+    .gte("fim", inicioHoje.toISOString())
+    .order("inicio", { ascending: true });
+  return (data ?? []) as Bloqueio[];
 }

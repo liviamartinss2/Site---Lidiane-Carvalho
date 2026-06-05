@@ -20,7 +20,7 @@ export default function PainelLayout({
             Modo demonstração — configure o Supabase (.env.local) para usar dados reais.
           </div>
         )}
-        <div className="mx-auto max-w-5xl px-6 py-8">{children}</div>
+        <div className="mx-auto max-w-5xl px-4 py-6 sm:px-6 sm:py-8">{children}</div>
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ export default async function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="mx-auto grid max-w-6xl items-center gap-10 px-6 py-12 md:grid-cols-2 md:py-20">
+      <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 py-12 md:grid-cols-2 md:py-20">
         <div>
           <span className="selo-gold">★ {config.anosExperiencia} anos de experiência</span>
           <h1 className="mt-4 font-serif text-4xl font-semibold leading-[1.05] text-ink md:text-5xl">
@@ -68,7 +68,7 @@ export default async function HomePage() {
       </section>
 
       {/* SERVICOS EM DESTAQUE */}
-      <section className="mx-auto max-w-6xl px-6 py-12">
+      <section className="mx-auto max-w-6xl px-4 sm:px-6 py-12">
         <div className="mb-8 flex items-end justify-between">
           <div>
             <span className="text-sm font-semibold uppercase tracking-wide text-gold-dark">
@@ -95,7 +95,7 @@ export default async function HomePage() {
       {/* DEPOIMENTOS */}
       {depoimentos.length > 0 && (
         <section className="bg-rose-soft py-16">
-          <div className="mx-auto max-w-6xl px-6">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <div className="mb-8 text-center">
               <span className="text-sm font-semibold uppercase tracking-wide text-gold-dark">
                 Depoimentos
@@ -118,7 +118,7 @@ export default async function HomePage() {
       )}
 
       {/* CTA FINAL */}
-      <section className="mx-auto max-w-6xl px-6 py-16">
+      <section className="mx-auto max-w-6xl px-4 sm:px-6 py-16">
         <div className="rounded-xl2 bg-ink px-8 py-12 text-center text-white shadow-soft">
           <h2 className="font-serif text-3xl font-semibold">
             Pronta para realçar sua beleza?

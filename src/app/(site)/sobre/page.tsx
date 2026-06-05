@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function SobrePage() {
   return (
-    <div className="mx-auto max-w-6xl px-6 py-12">
+    <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
       {/* SOBRE */}
       <section className="grid items-center gap-10 md:grid-cols-2">
         <div>
