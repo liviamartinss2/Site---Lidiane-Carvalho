@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-cream text-ink-soft font-sans antialiased;
+    background-image: var(--tw-bg-page);
+  }
+}
+
+@layer components {
+  /* Botoes */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 font-semibold transition-all duration-200 cursor-pointer text-center;
+  }
+  .btn-primary {
+    @apply btn bg-rose-gradient text-white shadow-glow hover:opacity-95 hover:-translate-y-0.5;
+  }
+  .btn-gold {
+    @apply btn bg-gold-gradient text-ink shadow-gold hover:opacity-95 hover:-translate-y-0.5;
+  }
+  .btn-ghost {
+    @apply btn bg-white text-ink-soft border border-line hover:border-rose;
+  }
+  .btn-dark {
+    @apply btn bg-ink text-white hover:bg-ink/90;
+  }
+  .btn-full {
+    @apply w-full;
+  }
+
+  /* Cartoes */
+  .card {
+    @apply rounded-xl2 border border-line bg-white/60 p-5 shadow-soft backdrop-blur-sm;
+  }
+  .card-solid {
+    @apply rounded-xl2 border border-line bg-white p-5 shadow-soft;
+  }
+
+  /* Selo dourado */
+  .selo-gold {
+    @apply inline-flex items-center gap-2 rounded-full border border-gold-light bg-gradient-to-b from-[#FBF3DE] to-[#F6ECD2] px-4 py-1.5 text-sm font-medium text-gold-dark;
+  }
+
+  /* Inputs */
+  .input {
+    @apply w-full rounded-xl border border-line bg-white px-4 py-3 text-ink-soft outline-none transition-all focus:border-rose focus:ring-4 focus:ring-rose/15;
+  }
+  .label {
+    @apply mb-1.5 block text-sm text-ink-muted;
+  }
+
+  /* Titulo de secao */
+  .h-serif {
+    @apply font-serif font-semibold leading-tight text-ink;
+  }
+}
+
+:root {
+  --tw-bg-page: radial-gradient(
+      60% 80% at 0% 0%,
+      #f9e6ec 0%,
+      transparent 60%
+    ),
+    radial-gradient(60% 80% at 100% 100%, #f2e7de 0%, transparent 60%);
+}
