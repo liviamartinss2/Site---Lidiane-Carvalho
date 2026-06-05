@@ -8,6 +8,17 @@ estratégico.
 > O site funciona em **modo demonstração** mesmo sem banco de dados configurado
 > (usa dados de exemplo). Para dados reais, configure o Supabase (passos abaixo).
 
+## 🚀 Colocar no ar (1 clique)
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/liviamartinss2/Site---Lidiane-Carvalho)
+
+1. Clique no botão acima e faça login na **Vercel** (gratuito; pode usar a conta do GitHub)
+2. Confirme o import do repositório e clique em **Deploy**
+3. Em ~1 minuto o site estará no ar em modo demonstração (`https://seu-projeto.vercel.app`)
+4. Para dados reais, adicione as variáveis do Supabase nas *Environment Variables* (ver abaixo) e refaça o deploy
+
+> O deploy inicial **não exige** nenhuma variável — o site sobe funcionando com dados de exemplo.
+
 ---
 
 ## ✨ Funcionalidades
