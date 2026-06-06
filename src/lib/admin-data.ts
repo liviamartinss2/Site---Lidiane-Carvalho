@@ -1,7 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
-import { supabaseConfigurado } from "@/lib/data";
+import { supabaseConfigurado, getServicos } from "@/lib/data";
 import { config } from "@/lib/config";
-import type { AgendamentoDetalhado, Bloqueio, Cliente } from "@/lib/types";
+import type { AgendamentoDetalhado, Bloqueio, Cliente, Servico } from "@/lib/types";
 
 const SELECT_AGENDAMENTO =
   "id, inicio, fim, status, valor_cobrado, origem, observacoes, criado_em, cliente_id, servico_id, cliente:clientes(id,nome,telefone), servico:servicos(id,nome,duracao_min)";
@@ -280,6 +280,17 @@ export async function getAgendaIntervalo(
     .lte("inicio", ateISO)
     .order("inicio", { ascending: true });
   return (data ?? []) as unknown as AgendamentoDetalhado[];
+}
+
+/** Todos os serviços (inclusive inativos) para gestão no painel */
+export async function getServicosAdmin(): Promise<Servico[]> {
+  if (!supabaseConfigurado()) return getServicos();
+  const supabase = createClient();
+  const { data } = await supabase
+    .from("servicos")
+    .select("*")
+    .order("ordem", { ascending: true });
+  return (data ?? []) as Servico[];
 }
 
 /** Bloqueios de agenda futuros (folgas, almoço, compromissos, feriados) */
