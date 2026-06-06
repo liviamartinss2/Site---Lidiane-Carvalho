@@ -2,7 +2,32 @@
 
 import { createClient } from "@/lib/supabase/server";
 import { getServicoPorId, supabaseConfigurado } from "@/lib/data";
-import { normalizarTelefone } from "@/lib/format";
+import { normalizarTelefone, formatData, formatHora } from "@/lib/format";
+
+/**
+ * Notifica a Lidiane por e-mail (via webhook do n8n) sobre um novo agendamento.
+ * Tolerante a falhas: nunca quebra o agendamento se a notificação falhar.
+ */
+async function notificarNovoAgendamento(payload: {
+  nome: string;
+  telefone: string;
+  servico: string;
+  dataHora: string;
+  observacoes: string;
+}) {
+  const url = process.env.N8N_WEBHOOK_AGENDAMENTO;
+  if (!url) return;
+  try {
+    await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+      signal: AbortSignal.timeout(4000),
+    });
+  } catch {
+    // ignora erros de notificação — o agendamento já foi salvo
+  }
+}
 
 export interface ResultadoAgendamento {
   ok: boolean;
@@ -116,6 +141,15 @@ export async function criarAgendamento(
       erro: "Esse horário acabou de ser reservado. Escolha outro, por favor.",
     };
   }
+
+  // Avisa a Lidiane por e-mail (n8n) — sem bloquear o sucesso do agendamento
+  await notificarNovoAgendamento({
+    nome,
+    telefone,
+    servico: servico.nome,
+    dataHora: `${formatData(inicio)} às ${formatHora(inicio)}`,
+    observacoes: dados.observacoes?.trim() || "",
+  });
 
   return { ok: true, inicioISO: inicio.toISOString() };
 }
