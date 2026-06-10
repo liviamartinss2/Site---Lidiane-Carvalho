@@ -15,7 +15,7 @@ const config: Config = {
           soft: "#F8F1F4", // blush claro
           deep: "#6B3947",
         },
-        cream: "#F4EFE9",
+        cream: "#FAF7F4",
         gold: {
           DEFAULT: "#C9A24B",
           light: "#E4CE94",
@@ -42,12 +42,15 @@ const config: Config = {
         ],
       },
       borderRadius: {
-        xl2: "22px",
+        xl2: "24px",
+        xl3: "32px",
       },
       boxShadow: {
-        soft: "0 10px 30px rgba(0,0,0,.08)",
-        glow: "0 6px 18px rgba(199,123,140,.35)",
+        soft: "0 1px 2px rgba(26,20,22,.04), 0 12px 40px rgba(26,20,22,.06)",
+        glow: "0 4px 14px rgba(142,75,90,.25), 0 1px 3px rgba(142,75,90,.2)",
+        "glow-lg": "0 8px 28px rgba(142,75,90,.32)",
         gold: "0 6px 20px rgba(201,162,75,.25)",
+        ring: "inset 0 0 0 1px rgba(58,42,45,.06)",
       },
       backgroundImage: {
         "rose-gradient": "linear-gradient(90deg, #8E4B5A, #C77B8C)",

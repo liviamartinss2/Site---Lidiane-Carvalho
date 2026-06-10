@@ -43,7 +43,7 @@ export default function SobrePage() {
       {/* LOCALIZACAO */}
       <section className="mt-16">
         <div className="mb-6 text-center">
-          <span className="text-sm font-semibold uppercase tracking-wide text-gold-dark">
+          <span className="eyebrow">
             Localização
           </span>
           <h2 className="h-serif mt-1 text-3xl">Onde nos encontrar</h2>
