@@ -12,7 +12,7 @@ export default async function DepoimentosPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
       <div className="mb-10 text-center">
-        <span className="text-sm font-semibold uppercase tracking-wide text-gold-dark">
+        <span className="eyebrow">
           Depoimentos
         </span>
         <h1 className="h-serif mt-1 text-4xl">Clientes que confiam</h1>

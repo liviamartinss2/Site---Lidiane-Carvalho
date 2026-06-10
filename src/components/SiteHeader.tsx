@@ -16,7 +16,7 @@ export function SiteHeader() {
   const fechar = () => setAberto(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-cream/80 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-line/60 bg-cream/70 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
         <Link href="/" onClick={fechar} className="flex items-center gap-2.5">
           <span className="grid h-10 w-10 shrink-0 place-items-center rounded-2xl border border-white/60 bg-[conic-gradient(from_160deg,#8E4B5A,#C77B8C)] font-serif text-base font-bold text-white shadow-glow sm:h-11 sm:w-11 sm:text-lg">
@@ -37,7 +37,7 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm text-ink-soft transition-colors hover:text-rose-wine"
+              className="rounded-full px-3 py-1.5 text-sm text-ink-soft transition-colors duration-200 hover:bg-white/70 hover:text-rose-wine"
             >
               {item.label}
             </Link>
