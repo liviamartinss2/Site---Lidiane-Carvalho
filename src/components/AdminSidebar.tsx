@@ -19,7 +19,7 @@ export function AdminSidebar() {
   return (
     <aside className="flex w-full flex-row gap-1 border-b border-line bg-ink p-2 text-cream/80 md:h-screen md:w-60 md:flex-col md:gap-1 md:border-b-0 md:border-r md:p-4">
       <div className="mb-0 hidden items-center gap-2 px-2 py-3 md:flex">
-        <span className="grid h-9 w-9 place-items-center rounded-xl bg-[conic-gradient(from_160deg,#8E4B5A,#C77B8C)] font-serif text-sm font-bold text-white">
+        <span className="grid h-9 w-9 place-items-center rounded-xl bg-[conic-gradient(from_160deg,#8E0038,#C9184A)] font-serif text-sm font-bold text-white">
           LC
         </span>
         <span className="font-serif text-sm text-white">Lidiane Carvalho</span>

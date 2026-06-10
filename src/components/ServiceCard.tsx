@@ -2,12 +2,25 @@ import Link from "next/link";
 import type { Servico } from "@/lib/types";
 import { formatBRL, formatDuracao } from "@/lib/format";
 
-export function ServiceCard({ servico }: { servico: Servico }) {
+export function ServiceCard({
+  servico,
+  indice,
+}: {
+  servico: Servico;
+  indice?: number;
+}) {
   return (
-    <div className="card-solid group flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-glow-lg">
-      <div className="mb-3 flex items-start justify-between gap-2">
-        <h3 className="h-serif text-xl">{servico.nome}</h3>
-        <span className="selo-gold whitespace-nowrap text-xs">
+    <div className="group flex flex-col rounded-xl2 border border-line bg-white p-6 transition-all duration-300 hover:border-rose/60 hover:-translate-y-1">
+      <div className="mb-4 flex items-start justify-between gap-3">
+        <div className="flex items-baseline gap-3">
+          {indice != null && (
+            <span className="num-serif">
+              {String(indice).padStart(2, "0")}
+            </span>
+          )}
+          <h3 className="h-serif text-2xl">{servico.nome}</h3>
+        </div>
+        <span className="selo-gold whitespace-nowrap">
           {formatDuracao(servico.duracao_min)}
         </span>
       </div>
@@ -29,15 +42,15 @@ export function ServiceCard({ servico }: { servico: Servico }) {
         </ul>
       )}
 
-      <div className="mt-auto flex items-center justify-between border-t border-line/70 pt-5">
-        <span className="font-serif text-lg tracking-tight text-rose-wine">
+      <div className="mt-auto flex items-center justify-between border-t border-line pt-5">
+        <span className="font-serif text-xl tracking-tight text-rose-wine">
           {servico.mostrar_valor ? formatBRL(servico.valor) : "Sob consulta"}
         </span>
         <Link
           href={`/agendar?servico=${servico.id}`}
-          className="btn-primary px-5 py-2 text-sm"
+          className="text-sm font-medium text-ink transition-colors group-hover:text-rose"
         >
-          Agendar
+          Agendar →
         </Link>
       </div>
     </div>
