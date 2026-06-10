@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { config } from "@/lib/config";
+import { Monograma } from "@/components/Monograma";
 
 const nav = [
   { href: "/servicos", label: "Serviços" },
@@ -19,8 +20,8 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-line/60 bg-cream/70 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
         <Link href="/" onClick={fechar} className="flex items-center gap-2.5">
-          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-2xl border border-white/60 bg-[conic-gradient(from_160deg,#8E0038,#C9184A)] font-serif text-base font-bold text-white shadow-glow sm:h-11 sm:w-11 sm:text-lg">
-            LC
+          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-rose shadow-glow sm:h-11 sm:w-11">
+            <Monograma className="h-6 w-6 text-white sm:h-7 sm:w-7" />
           </span>
           <span className="leading-tight">
             <span className="block font-serif text-sm font-semibold text-ink sm:text-base">

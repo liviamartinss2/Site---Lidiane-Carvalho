@@ -1,0 +1,15 @@
+COMO COLOCAR A FOTO DA LIDIANE NO SITE
+=======================================
+
+1. Renomeie a foto dela para:  lidiane.jpg
+2. Coloque o arquivo dentro desta pasta /public  (ao lado deste arquivo).
+3. Pronto! O site usa automaticamente em /public/lidiane.jpg
+   (na home e na pagina "Sobre").
+
+Dicas:
+- Use uma foto em retrato (mais alta que larga), boa iluminacao.
+- Formato .jpg ou .png. Se usar .png, troque o nome para lidiane.jpg
+  OU me avise para eu apontar para .png.
+- Tamanho ideal: ~1000px de largura.
+
+Enquanto o arquivo nao existir, o site mostra uma imagem de exemplo.

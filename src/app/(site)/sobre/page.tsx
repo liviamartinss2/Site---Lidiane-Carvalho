@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { config } from "@/lib/config";
+import { Brilho } from "@/components/Brilho";
+import { FotoLidiane } from "@/components/FotoLidiane";
 
 export const metadata = {
   title: "Sobre & Localização — Lidiane Carvalho",
@@ -13,7 +15,11 @@ export default function SobrePage() {
       <section className="grid items-center gap-10 md:grid-cols-2">
         <div>
           <span className="selo-gold">★ {config.anosExperiencia} anos de experiência</span>
-          <h1 className="h-serif mt-4 text-4xl">Sobre a Lidiane</h1>
+          <h1 className="h-serif mt-4 text-5xl">
+            Quem é
+            <br />
+            <span className="italic font-medium text-rose">Lidiane Carvalho</span>
+          </h1>
           <p className="mt-4 text-ink-muted">
             Há {config.anosExperiencia} anos transformando olhares e elevando a
             autoestima de mulheres em Aquiraz e região. A Lidiane Carvalho uniu
@@ -30,13 +36,16 @@ export default function SobrePage() {
           </Link>
         </div>
 
-        <div className="relative min-h-[320px] overflow-hidden rounded-xl2 border border-line bg-rose-soft shadow-soft">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?q=80&w=1400&auto=format&fit=crop"
-            alt="Estúdio Lidiane Carvalho"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
+        <div className="relative">
+          <Brilho className="absolute -left-4 top-10 z-10 text-rose" size={30} />
+          <Brilho className="absolute -right-3 -top-4 z-10 text-beige" size={20} />
+          <Brilho className="absolute -bottom-4 right-12 z-10 text-rose/70" size={18} />
+          <div className="relative aspect-[4/5] overflow-hidden rounded-xl3 bg-rose-soft ring-1 ring-ink/5">
+            <FotoLidiane
+              alt="Lidiane Carvalho"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </div>
         </div>
       </section>
 
