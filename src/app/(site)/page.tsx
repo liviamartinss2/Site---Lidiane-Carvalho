@@ -3,6 +3,8 @@ import { config, whatsappLink } from "@/lib/config";
 import { getServicos, getDepoimentos } from "@/lib/data";
 import { ServiceCard } from "@/components/ServiceCard";
 import { Stars } from "@/components/Stars";
+import { Brilho } from "@/components/Brilho";
+import { FotoLidiane } from "@/components/FotoLidiane";
 
 export default async function HomePage() {
   const servicos = await getServicos();
@@ -15,7 +17,8 @@ export default async function HomePage() {
       <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 pb-16 pt-12 sm:px-6 md:grid-cols-12 md:gap-8 md:pb-28 md:pt-20">
         <div className="md:col-span-7">
           <span className="selo-gold">★ {config.anosExperiencia} anos de experiência</span>
-          <h1 className="mt-7 font-serif text-[3.25rem] font-semibold leading-[0.98] tracking-tightest text-ink sm:text-6xl md:text-[5.5rem]">
+          <h1 className="relative mt-7 font-serif text-[3.25rem] font-semibold leading-[0.98] tracking-tightest text-ink sm:text-6xl md:text-[5.5rem]">
+            <Brilho className="absolute -left-6 -top-6 hidden text-rose/40 md:block" size={26} />
             Sobrancelhas
             <br />
             impecáveis,
@@ -65,14 +68,26 @@ export default async function HomePage() {
 
         {/* imagem */}
         <div className="md:col-span-5">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-xl3 ring-1 ring-ink/5">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="https://images.unsplash.com/photo-1620336655052-d780c3e53b2b?q=80&w=1400&auto=format&fit=crop"
-              alt="Design de sobrancelhas no estúdio Lidiane Carvalho"
-              className="absolute inset-0 h-full w-full object-cover"
+          <div className="relative">
+            <Brilho
+              className="absolute -left-4 top-8 z-10 text-rose"
+              size={30}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink/15 to-transparent" />
+            <Brilho
+              className="absolute -right-3 -top-4 z-10 text-beige"
+              size={20}
+            />
+            <Brilho
+              className="absolute -bottom-4 left-10 z-10 text-rose/70"
+              size={18}
+            />
+            <div className="relative aspect-[4/5] overflow-hidden rounded-xl3 bg-rose-soft ring-1 ring-ink/5">
+              <FotoLidiane
+                alt="Lidiane Carvalho — especialista em design de sobrancelhas"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/15 to-transparent" />
+            </div>
           </div>
         </div>
       </section>
@@ -110,7 +125,10 @@ export default async function HomePage() {
         <section className="border-y border-line bg-rose-soft/40 py-20 md:py-28">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <div className="mb-14 text-center">
-              <span className="eyebrow">Depoimentos</span>
+              <span className="inline-flex items-center gap-2 eyebrow">
+                <Brilho size={14} className="text-rose" />
+                Depoimentos
+              </span>
               <h2 className="h-serif mt-3 text-4xl sm:text-5xl">
                 O que dizem nossas clientes
               </h2>
@@ -150,6 +168,7 @@ export default async function HomePage() {
                 "radial-gradient(60% 80% at 50% 0%, rgba(201,24,74,.45) 0%, transparent 65%)",
             }}
           />
+          <Brilho className="absolute left-1/2 top-10 -translate-x-1/2 text-rose/60" size={28} />
           <span className="eyebrow relative text-rose">Vamos começar</span>
           <h2 className="relative mt-5 font-serif text-4xl font-semibold leading-[1.05] tracking-tightest sm:text-6xl">
             Pronta para realçar
