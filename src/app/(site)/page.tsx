@@ -11,24 +11,22 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* HERO */}
-      <section className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 sm:px-6 md:grid-cols-2 md:py-28">
-        <div>
+      {/* HERO — editorial, assimetrico */}
+      <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 pb-16 pt-12 sm:px-6 md:grid-cols-12 md:gap-8 md:pb-28 md:pt-20">
+        <div className="md:col-span-7">
           <span className="selo-gold">★ {config.anosExperiencia} anos de experiência</span>
-          <h1 className="mt-6 font-serif text-[2.75rem] font-semibold leading-[1.04] tracking-tight text-ink sm:text-5xl md:text-6xl">
+          <h1 className="mt-7 font-serif text-[3.25rem] font-semibold leading-[0.98] tracking-tightest text-ink sm:text-6xl md:text-[5.5rem]">
             Sobrancelhas
             <br />
-            impecáveis.
+            impecáveis,
             <br />
-            <span className="bg-rose-gradient bg-clip-text text-transparent">
-              Com elegância.
-            </span>
+            <span className="italic font-medium text-rose">com elegância.</span>
           </h1>
-          <p className="mt-6 max-w-md text-lg leading-relaxed text-ink-muted">
+          <p className="mt-7 max-w-md text-lg leading-relaxed text-ink-muted">
             Estúdio de beleza em Aquiraz especializado em design de sobrancelhas,
             brow lamination, cílios e maquiagem. Agende online em menos de 1 minuto.
           </p>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <div className="mt-9 flex flex-wrap items-center gap-3">
             <Link href="/agendar" className="btn-primary px-8">
               Agendar horário
             </Link>
@@ -43,55 +41,61 @@ export default async function HomePage() {
           </div>
 
           {/* prova social */}
-          <div className="mt-12 flex items-center gap-8">
+          <div className="mt-12 flex items-center gap-10">
             <div>
               <div className="flex items-center gap-2">
                 <Stars nota={5} />
                 <span className="text-sm font-semibold text-ink">5,0</span>
               </div>
-              <p className="mt-1 text-xs text-ink-muted">Avaliação das clientes</p>
-            </div>
-            <div className="h-10 w-px bg-line" />
-            <div>
-              <p className="font-serif text-2xl tracking-tight text-rose-wine">
-                +{config.anosExperiencia} anos
+              <p className="mt-1.5 text-xs uppercase tracking-wider text-ink-muted">
+                Avaliação das clientes
               </p>
-              <p className="mt-1 text-xs text-ink-muted">cuidando da sua beleza</p>
+            </div>
+            <div className="h-12 w-px bg-line" />
+            <div>
+              <p className="font-serif text-3xl tracking-tight text-rose-wine">
+                +{config.anosExperiencia}
+              </p>
+              <p className="mt-1 text-xs uppercase tracking-wider text-ink-muted">
+                anos de beleza
+              </p>
             </div>
           </div>
         </div>
 
         {/* imagem */}
-        <div className="relative min-h-[360px] overflow-hidden rounded-xl3 shadow-soft ring-1 ring-ink/5 md:min-h-[480px]">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://images.unsplash.com/photo-1620336655052-d780c3e53b2b?q=80&w=1400&auto=format&fit=crop"
-            alt="Design de sobrancelhas no estúdio Lidiane Carvalho"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink/10 to-transparent" />
+        <div className="md:col-span-5">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-xl3 ring-1 ring-ink/5">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://images.unsplash.com/photo-1620336655052-d780c3e53b2b?q=80&w=1400&auto=format&fit=crop"
+              alt="Design de sobrancelhas no estúdio Lidiane Carvalho"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink/15 to-transparent" />
+          </div>
         </div>
       </section>
 
       {/* SERVICOS EM DESTAQUE */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-24">
-        <div className="mb-12 flex items-end justify-between">
+        <div className="mb-12 flex items-end justify-between border-t border-line pt-8">
           <div>
             <span className="eyebrow">Nossos serviços</span>
-            <h2 className="h-serif mt-3 text-3xl sm:text-4xl">
+            <h2 className="h-serif mt-3 text-4xl sm:text-5xl">
               Cuidados que valorizam você
             </h2>
           </div>
           <Link
             href="/servicos"
-            className="hidden text-sm font-medium text-rose-wine transition-colors hover:text-rose md:block"
+            className="hidden whitespace-nowrap text-sm font-medium text-rose transition-colors hover:text-rose-wine md:block"
           >
             Ver todos →
           </Link>
         </div>
         <div className="grid gap-6 md:grid-cols-3">
-          {destaque.map((s) => (
-            <ServiceCard key={s.id} servico={s} />
+          {destaque.map((s, i) => (
+            <ServiceCard key={s.id} servico={s} indice={i + 1} />
           ))}
         </div>
         <div className="mt-8 text-center md:hidden">
@@ -101,52 +105,62 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* DEPOIMENTOS */}
+      {/* DEPOIMENTOS — minimalista, com aspas decorativas */}
       {depoimentos.length > 0 && (
-        <section className="py-20 md:py-28">
+        <section className="border-y border-line bg-rose-soft/40 py-20 md:py-28">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <div className="mb-12 text-center">
+            <div className="mb-14 text-center">
               <span className="eyebrow">Depoimentos</span>
-              <h2 className="h-serif mt-3 text-3xl sm:text-4xl">
+              <h2 className="h-serif mt-3 text-4xl sm:text-5xl">
                 O que dizem nossas clientes
               </h2>
             </div>
-            <div className="grid gap-6 md:grid-cols-3">
+            <div className="grid gap-x-10 gap-y-12 md:grid-cols-3">
               {depoimentos.slice(0, 3).map((d) => (
-                <div
-                  key={d.id}
-                  className="card-solid hover:shadow-glow-lg"
-                >
-                  <Stars nota={d.nota} />
-                  <p className="mt-4 leading-relaxed text-ink-soft">“{d.texto}”</p>
-                  <p className="mt-5 text-sm font-semibold text-rose-wine">
-                    {d.cliente_nome}
-                  </p>
-                </div>
+                <figure key={d.id} className="flex flex-col">
+                  <span
+                    aria-hidden="true"
+                    className="font-serif text-6xl leading-none text-rose/40"
+                  >
+                    &ldquo;
+                  </span>
+                  <blockquote className="-mt-4 font-serif text-xl leading-relaxed text-ink">
+                    {d.texto}
+                  </blockquote>
+                  <figcaption className="mt-6 flex items-center gap-3">
+                    <span className="h-px w-6 bg-rose" />
+                    <span className="text-sm font-semibold uppercase tracking-wider text-rose-wine">
+                      {d.cliente_nome}
+                    </span>
+                  </figcaption>
+                </figure>
               ))}
             </div>
           </div>
         </section>
       )}
 
-      {/* CTA FINAL */}
-      <section className="mx-auto max-w-6xl px-4 pb-24 sm:px-6">
-        <div className="relative overflow-hidden rounded-xl3 bg-ink px-8 py-16 text-center text-white shadow-soft md:py-20">
+      {/* CTA FINAL — preto editorial com detalhe rosa */}
+      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
+        <div className="relative overflow-hidden rounded-xl3 bg-ink px-6 py-20 text-center text-white md:px-8 md:py-28">
           <div
-            className="pointer-events-none absolute inset-0 opacity-40"
+            className="pointer-events-none absolute inset-0"
             style={{
               background:
-                "radial-gradient(50% 60% at 50% 0%, rgba(199,123,140,.35) 0%, transparent 70%)",
+                "radial-gradient(60% 80% at 50% 0%, rgba(201,24,74,.45) 0%, transparent 65%)",
             }}
           />
-          <h2 className="relative font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
-            Pronta para realçar sua beleza?
+          <span className="eyebrow relative text-rose">Vamos começar</span>
+          <h2 className="relative mt-5 font-serif text-4xl font-semibold leading-[1.05] tracking-tightest sm:text-6xl">
+            Pronta para realçar
+            <br />
+            <span className="italic font-medium text-rose">a sua beleza?</span>
           </h2>
-          <p className="relative mx-auto mt-4 max-w-md text-lg text-cream/70">
+          <p className="relative mx-auto mt-6 max-w-md text-lg text-cream/70">
             Escolha o serviço, o melhor horário e confirme. Simples, rápido e
             elegante.
           </p>
-          <Link href="/agendar" className="btn-gold relative mt-8 inline-flex px-8">
+          <Link href="/agendar" className="btn-primary relative mt-9 inline-flex px-8">
             Agendar meu horário
           </Link>
         </div>

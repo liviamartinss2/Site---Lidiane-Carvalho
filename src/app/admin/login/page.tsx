@@ -21,7 +21,7 @@ export default function LoginPage() {
     <div className="grid min-h-screen place-items-center bg-cream px-6">
       <div className="w-full max-w-sm">
         <div className="mb-6 text-center">
-          <span className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-[conic-gradient(from_160deg,#8E4B5A,#C77B8C)] font-serif text-xl font-bold text-white shadow-glow">
+          <span className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-[conic-gradient(from_160deg,#8E0038,#C9184A)] font-serif text-xl font-bold text-white shadow-glow">
             LC
           </span>
           <h1 className="h-serif mt-3 text-2xl">Painel da Lidiane</h1>

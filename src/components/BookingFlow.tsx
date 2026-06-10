@@ -208,7 +208,7 @@ export function BookingFlow({
                     onClick={() => setSlot(s)}
                     className={`rounded-xl border px-3 py-2.5 text-sm font-medium transition-all ${
                       slot?.inicio === s.inicio
-                        ? "border-rose bg-rose-gradient text-white shadow-glow"
+                        ? "border-rose bg-rose text-white shadow-glow"
                         : "border-line bg-white text-ink-soft hover:border-rose"
                     }`}
                   >
@@ -328,18 +328,30 @@ function Stepper({ passo }: { passo: number }) {
         const ativo = passo >= n;
         return (
           <div key={nome} className="flex flex-1 items-center">
-            <div className="flex flex-col items-center gap-1">
+            <div className="flex flex-col items-center gap-1.5">
               <div
-                className={`grid h-8 w-8 place-items-center rounded-full text-sm font-semibold transition-colors ${
-                  ativo ? "bg-rose-gradient text-white" : "bg-white text-ink-muted border border-line"
+                className={`grid h-9 w-9 place-items-center rounded-full border font-serif text-sm transition-all duration-300 ${
+                  ativo
+                    ? "border-rose bg-rose text-white"
+                    : "border-line bg-white text-ink-muted"
                 }`}
               >
                 {n}
               </div>
-              <span className="text-[11px] text-ink-muted">{nome}</span>
+              <span
+                className={`text-[10px] uppercase tracking-[0.14em] transition-colors sm:text-[11px] ${
+                  ativo ? "text-ink" : "text-ink-muted"
+                }`}
+              >
+                {nome}
+              </span>
             </div>
             {i < etapas.length - 1 && (
-              <div className={`mx-1 h-0.5 flex-1 ${passo > n ? "bg-rose" : "bg-line"}`} />
+              <div
+                className={`mx-2 h-px flex-1 transition-colors duration-300 ${
+                  passo > n ? "bg-rose" : "bg-line"
+                }`}
+              />
             )}
           </div>
         );

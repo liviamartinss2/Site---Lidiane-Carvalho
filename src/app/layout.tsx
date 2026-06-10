@@ -1,11 +1,26 @@
 import type { Metadata, Viewport } from "next";
+import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
+  style: ["normal", "italic"],
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#F4EFE9",
+  themeColor: "#FAF7F4",
 };
 
 export const metadata: Metadata = {
@@ -34,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className={`${playfair.variable} ${inter.variable}`}>
       <body>{children}</body>
     </html>
   );
