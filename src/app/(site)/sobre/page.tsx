@@ -62,14 +62,24 @@ export default function SobrePage() {
           <div className="card-solid flex flex-col justify-center">
             <h3 className="font-serif text-xl text-rose-wine">Endereço</h3>
             <p className="mt-2 text-ink-soft">📍 {config.endereco}</p>
-            <a
-              href={config.mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-ghost mt-4 self-start"
-            >
-              Abrir no Google Maps
-            </a>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <a
+                href={config.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-ghost"
+              >
+                Abrir no Google Maps
+              </a>
+              <a
+                href={config.googleAvaliar}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-ghost"
+              >
+                ★ Avaliar no Google
+              </a>
+            </div>
 
             <h3 className="mt-6 font-serif text-xl text-rose-wine">Horário</h3>
             <p className="mt-2 text-sm text-ink-soft">

@@ -47,6 +47,9 @@ const Icon = {
       <circle cx="12" cy="10" r="2.6" />
     </>
   ),
+  star: (
+    <path d="M12 3.5l2.6 5.27 5.82.85-4.21 4.1.99 5.79L12 16.77l-5.2 2.74.99-5.79-4.21-4.1 5.82-.85L12 3.5Z" />
+  ),
   chevron: <path d="M9 6l6 6-6 6" />,
 };
 
@@ -97,6 +100,14 @@ const links: LinkItem[] = [
     sub: "O que dizem quem já passou por aqui",
     icon: "heart",
     bubble: "bg-rose-soft text-rose",
+  },
+  {
+    href: config.googleAvaliar,
+    external: true,
+    label: "Avalie no Google",
+    sub: "Deixe sua avaliação no nosso perfil",
+    icon: "star",
+    bubble: "bg-beige text-gold-dark",
   },
   {
     href: config.mapsUrl,

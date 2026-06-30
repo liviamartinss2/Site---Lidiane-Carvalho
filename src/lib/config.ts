@@ -5,10 +5,13 @@ export const config = {
   studioNome: process.env.NEXT_PUBLIC_STUDIO_NOME ?? "Lidiane Carvalho",
   endereco:
     process.env.NEXT_PUBLIC_STUDIO_ENDERECO ??
-    "R. 12, 148 - Lot. Sol Nascente, Aquiraz - CE, 61700-000",
+    "Av. Torres de Melo, 173 - Centro, Aquiraz - CE, 61700-000",
   mapsUrl:
     process.env.NEXT_PUBLIC_MAPS_URL ??
     "https://www.google.com/maps/place/Lidiane+Carvalho+-+Estudio+de+Beleza",
+  /** Perfil da empresa no Google (avaliacoes) */
+  googleAvaliar:
+    process.env.NEXT_PUBLIC_GOOGLE_AVALIAR ?? "https://share.google/bKny9S2XXdihKObfc",
   instagram:
     process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? "https://instagram.com/lidianecarvalho",
   anosExperiencia: 13,

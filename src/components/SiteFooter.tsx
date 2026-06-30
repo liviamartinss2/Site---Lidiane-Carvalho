@@ -40,6 +40,14 @@ export function SiteFooter() {
             >
               Instagram
             </a>
+            <a
+              href={config.googleAvaliar}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-cream/70 hover:text-white"
+            >
+              Avaliar no Google
+            </a>
             <Link href="/agendar" className="text-cream/70 hover:text-white">
               Agendar horário
             </Link>
