@@ -6,6 +6,10 @@ import { Stars } from "@/components/Stars";
 import { Brilho } from "@/components/Brilho";
 import { FotoLidiane } from "@/components/FotoLidiane";
 
+// ISR: pagina servida de cache e regenerada a cada 5 min (servicos/depoimentos
+// mudam pouco). Evita consultar o Supabase a cada acesso.
+export const revalidate = 300;
+
 export default async function HomePage() {
   const servicos = await getServicos();
   const depoimentos = await getDepoimentos();

@@ -2,6 +2,9 @@ import { getServicos } from "@/lib/data";
 import { ServiceCard } from "@/components/ServiceCard";
 import type { Categoria } from "@/lib/types";
 
+// ISR: cache regenerado a cada 5 min em vez de consultar o banco a cada acesso.
+export const revalidate = 300;
+
 export const metadata = {
   title: "Serviços — Lidiane Carvalho Estúdio de Beleza",
   description:

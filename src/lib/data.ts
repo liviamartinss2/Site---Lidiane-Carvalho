@@ -1,4 +1,4 @@
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/public";
 import type { Servico, Depoimento } from "@/lib/types";
 
 /** True quando as variaveis do Supabase estao configuradas */
@@ -148,7 +148,7 @@ const DEPOIMENTOS_FALLBACK: Depoimento[] = [
 export async function getServicos(): Promise<Servico[]> {
   if (!supabaseConfigurado()) return SERVICOS_FALLBACK;
   try {
-    const supabase = createClient();
+    const supabase = createPublicClient();
     const { data, error } = await supabase
       .from("servicos")
       .select("*")
@@ -169,7 +169,7 @@ export async function getServicoPorId(id: string): Promise<Servico | null> {
 export async function getDepoimentos(): Promise<Depoimento[]> {
   if (!supabaseConfigurado()) return DEPOIMENTOS_FALLBACK;
   try {
-    const supabase = createClient();
+    const supabase = createPublicClient();
     const { data, error } = await supabase
       .from("depoimentos")
       .select("*")

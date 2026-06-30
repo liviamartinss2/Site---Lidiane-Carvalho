@@ -1,6 +1,9 @@
 import { getDepoimentos } from "@/lib/data";
 import { Stars } from "@/components/Stars";
 
+// ISR: cache regenerado a cada 5 min em vez de consultar o banco a cada acesso.
+export const revalidate = 300;
+
 export const metadata = {
   title: "Depoimentos — Lidiane Carvalho",
   description: "Avaliações reais de clientes do estúdio Lidiane Carvalho em Aquiraz.",
