@@ -11,7 +11,7 @@ import {
   type ResultadoServico,
 } from "@/app/actions/servicos";
 
-const CATEGORIAS = ["Sobrancelhas", "Cilios", "Labios", "Maquiagem", "Geral"];
+const CATEGORIAS = ["Sobrancelhas", "Remocao", "Cilios", "Labios", "Maquiagem", "Geral"];
 
 export function ServicosManager({
   servicos,

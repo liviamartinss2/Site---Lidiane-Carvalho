@@ -13,6 +13,7 @@ interface Slot {
 
 const CATEGORIAS_LABEL: Record<string, string> = {
   Sobrancelhas: "Sobrancelhas",
+  Remocao: "Remoção",
   Cilios: "Cílios",
   Labios: "Lábios",
   Maquiagem: "Maquiagem",

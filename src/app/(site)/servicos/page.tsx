@@ -13,6 +13,7 @@ export const metadata = {
 
 const ORDEM_CATEGORIAS: Categoria[] = [
   "Sobrancelhas",
+  "Remocao",
   "Cilios",
   "Labios",
   "Maquiagem",
@@ -21,6 +22,7 @@ const ORDEM_CATEGORIAS: Categoria[] = [
 
 const ROTULO: Record<Categoria, string> = {
   Sobrancelhas: "Sobrancelhas",
+  Remocao: "Remoção",
   Cilios: "Cílios",
   Labios: "Lábios",
   Maquiagem: "Maquiagem",

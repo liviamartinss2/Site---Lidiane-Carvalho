@@ -110,6 +110,36 @@ const SERVICOS_FALLBACK: Servico[] = [
     ordem: 7,
     criado_em: "",
   },
+  {
+    id: "s8",
+    nome: "Remoção de Micropigmentação",
+    descricao:
+      "Remove gradualmente pigmentos antigos de micropigmentação, microblading ou tatuagem de sobrancelha, clareando a área com segurança para um novo desenho.",
+    beneficios:
+      "Corrige trabalhos antigos; clareia cores oxidadas; prepara para um novo design.",
+    categoria: "Remocao",
+    duracao_min: 60,
+    valor: null,
+    mostrar_valor: false,
+    ativo: true,
+    ordem: 8,
+    criado_em: "",
+  },
+  {
+    id: "s9",
+    nome: "Remoção de Tattoo",
+    descricao:
+      "Clareia e remove a tinta da pele em sessões progressivas, respeitando a cicatrização — para apagar por completo ou preparar uma cobertura (cover-up).",
+    beneficios:
+      "Apaga ou clareia tatuagens; ideal para cover-up; sessões progressivas e seguras.",
+    categoria: "Remocao",
+    duracao_min: 45,
+    valor: null,
+    mostrar_valor: false,
+    ativo: true,
+    ordem: 9,
+    criado_em: "",
+  },
 ];
 
 const DEPOIMENTOS_FALLBACK: Depoimento[] = [

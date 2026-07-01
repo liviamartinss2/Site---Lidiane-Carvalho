@@ -1,6 +1,12 @@
 // Tipos de dominio do estudio Lidiane Carvalho
 
-export type Categoria = "Sobrancelhas" | "Cilios" | "Labios" | "Maquiagem" | "Geral";
+export type Categoria =
+  | "Sobrancelhas"
+  | "Remocao"
+  | "Cilios"
+  | "Labios"
+  | "Maquiagem"
+  | "Geral";
 
 export type StatusAgendamento =
   | "agendado"
