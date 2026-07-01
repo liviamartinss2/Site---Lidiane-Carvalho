@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import { config } from "@/lib/config";
-import { FotoLidiane } from "@/components/FotoLidiane";
 
 const nav = [
   { href: "/servicos", label: "Serviços" },
@@ -20,18 +19,16 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 bg-rose-soft/70 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
         <Link href="/" onClick={fechar} className="flex items-center gap-2.5">
-          <span className="relative grid h-10 w-10 shrink-0 overflow-hidden rounded-2xl bg-rose-soft shadow-glow ring-1 ring-white/60 sm:h-11 sm:w-11">
-            <FotoLidiane
-              alt="Lidiane Carvalho"
-              className="absolute inset-0 h-full w-full object-cover object-[50%_22%]"
-            />
+          <span className="grid h-10 w-10 shrink-0 overflow-hidden rounded-2xl shadow-glow sm:h-11 sm:w-11">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo.svg" alt="Lidiane Carvalho" className="h-full w-full object-cover" />
           </span>
           <span className="leading-tight">
             <span className="block font-serif text-sm font-semibold text-ink sm:text-base">
               {config.studioNome}
             </span>
             <span className="hidden text-xs text-ink-muted sm:block">
-              Estúdio de Beleza
+              Clínica de Sobrancelhas
             </span>
           </span>
         </Link>
