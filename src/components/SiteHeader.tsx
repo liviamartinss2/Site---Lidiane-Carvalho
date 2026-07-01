@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { config } from "@/lib/config";
-import { Monograma } from "@/components/Monograma";
+import { FotoLidiane } from "@/components/FotoLidiane";
 
 const nav = [
   { href: "/servicos", label: "Serviços" },
@@ -17,11 +17,14 @@ export function SiteHeader() {
   const fechar = () => setAberto(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line/60 bg-cream/70 backdrop-blur-xl">
+    <header className="sticky top-0 z-40 bg-rose-soft/70 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
         <Link href="/" onClick={fechar} className="flex items-center gap-2.5">
-          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-2xl border border-white/50 bg-rose/20 shadow-glow backdrop-blur-md sm:h-11 sm:w-11">
-            <Monograma className="h-6 w-6 text-rose sm:h-7 sm:w-7" />
+          <span className="relative grid h-10 w-10 shrink-0 overflow-hidden rounded-2xl bg-rose-soft shadow-glow ring-1 ring-white/60 sm:h-11 sm:w-11">
+            <FotoLidiane
+              alt="Lidiane Carvalho"
+              className="absolute inset-0 h-full w-full object-cover object-[50%_22%]"
+            />
           </span>
           <span className="leading-tight">
             <span className="block font-serif text-sm font-semibold text-ink sm:text-base">
