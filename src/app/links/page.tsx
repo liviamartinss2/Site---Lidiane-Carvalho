@@ -63,15 +63,10 @@ type LinkItem = {
   bubble: string;
 };
 
+// Enquanto o banco/produção não está resolvido, o /links mostra só o que NÃO
+// depende do banco. Agendamento online (e Serviços/Depoimentos, que leem o
+// banco) ficam fora; o WhatsApp é o canal principal (botão em destaque abaixo).
 const links: LinkItem[] = [
-  {
-    href: whatsappLink("Olá Lidiane! Vim pelos links e gostaria de mais informações."),
-    external: true,
-    label: "Chamar no WhatsApp",
-    sub: "Resposta rápida e atendimento direto",
-    icon: "whatsapp",
-    bubble: "bg-[#25D366] text-white",
-  },
   {
     href: config.instagram,
     external: true,
@@ -81,24 +76,10 @@ const links: LinkItem[] = [
     bubble: "bg-[image:linear-gradient(135deg,#FEDA77,#DD2A7B,#8134AF)] text-white",
   },
   {
-    href: "/servicos",
-    label: "Serviços & valores",
-    sub: "Sobrancelhas, cílios, lábios e maquiagem",
-    icon: "sparkles",
-    bubble: "bg-beige text-rose-wine",
-  },
-  {
     href: "/resultados",
     label: "Resultados",
     sub: "Antes e depois das nossas clientes",
     icon: "gallery",
-    bubble: "bg-rose-soft text-rose",
-  },
-  {
-    href: "/depoimentos",
-    label: "Depoimentos",
-    sub: "O que dizem quem já passou por aqui",
-    icon: "heart",
     bubble: "bg-rose-soft text-rose",
   },
   {
@@ -161,32 +142,25 @@ export default function LinksPage() {
           </div>
         </header>
 
-        {/* BOTÃO PRINCIPAL — AGENDAR */}
-        <Link
-          href="/agendar"
-          className="group relative mt-9 w-full overflow-hidden rounded-full bg-rose px-6 py-4 text-center shadow-glow transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-rose-vibrant hover:shadow-glow-lg active:translate-y-0 active:scale-[0.99]"
+        {/* BOTÃO PRINCIPAL — WHATSAPP (agendamento online temporariamente fora) */}
+        <a
+          href={whatsappLink("Olá Lidiane! Gostaria de agendar um horário.")}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative mt-9 w-full overflow-hidden rounded-full bg-[#25D366] px-6 py-4 text-center shadow-glow transition-all duration-300 ease-out hover:-translate-y-0.5 hover:brightness-105 hover:shadow-glow-lg active:translate-y-0 active:scale-[0.99]"
         >
           {/* brilho que passa no hover */}
           <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/35 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
           <span className="relative flex items-center justify-center gap-2.5 font-serif text-lg font-semibold text-white">
-            <svg
-              viewBox="0 0 24 24"
-              className="h-5 w-5"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              {Icon.calendar}
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true">
+              {Icon.whatsapp}
             </svg>
-            Agendar horário
+            Agendar pelo WhatsApp
           </span>
-        </Link>
+        </a>
         <p className="mt-2.5 flex items-center gap-1.5 text-xs text-ink-muted">
           <Brilho size={11} className="text-rose" />
-          Online, em menos de 1 minuto
+          Atendimento rápido e direto
         </p>
 
         {/* DEMAIS LINKS */}
