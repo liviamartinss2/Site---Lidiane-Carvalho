@@ -3,7 +3,7 @@ import Link from "next/link";
 import { config, whatsappLink } from "@/lib/config";
 import { Stars } from "@/components/Stars";
 import { Brilho } from "@/components/Brilho";
-import { Monograma } from "@/components/Monograma";
+import { FotoLidiane } from "@/components/FotoLidiane";
 
 export const metadata: Metadata = {
   title: `${config.studioNome} — Links | Estúdio de Beleza em Aquiraz`,
@@ -139,8 +139,11 @@ export default function LinksPage() {
             <Brilho className="absolute -left-3 top-1 z-10 text-rose" size={24} />
             <Brilho className="absolute -right-2 -top-3 z-10 text-beige" size={18} />
             <Brilho className="absolute -bottom-2 right-5 z-10 text-rose/70" size={16} />
-            <span className="grid h-28 w-28 place-items-center rounded-full bg-rose shadow-glow-lg ring-4 ring-white">
-              <Monograma className="h-14 w-14 text-white" />
+            <span className="relative grid h-28 w-28 place-items-center overflow-hidden rounded-full bg-rose-soft shadow-glow-lg ring-4 ring-white">
+              <FotoLidiane
+                alt="Lidiane Carvalho"
+                className="absolute inset-0 h-full w-full object-cover object-[50%_28%]"
+              />
             </span>
           </div>
 
@@ -156,11 +159,6 @@ export default function LinksPage() {
             <span className="text-sm font-semibold text-ink">5,0</span>
             <span className="text-xs text-ink-muted">· avaliação das clientes</span>
           </div>
-
-          <p className="mt-5 max-w-xs text-[15px] leading-relaxed text-ink-muted">
-            Sobrancelhas impecáveis, cílios e maquiagem com elegância. Escolha por
-            onde quer começar.
-          </p>
         </header>
 
         {/* BOTÃO PRINCIPAL — AGENDAR */}

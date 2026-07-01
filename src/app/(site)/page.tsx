@@ -23,11 +23,9 @@ export default async function HomePage() {
           <span className="selo-gold">★ {config.anosExperiencia} anos de experiência</span>
           <h1 className="relative mt-7 font-serif text-[3.25rem] font-semibold leading-[0.98] tracking-tightest text-ink sm:text-6xl md:text-[5.5rem]">
             <Brilho className="absolute -left-6 -top-6 hidden text-rose/40 md:block" size={26} />
-            Sobrancelhas
+            Lidiane
             <br />
-            impecáveis,
-            <br />
-            <span className="italic font-medium text-rose">com elegância.</span>
+            <span className="italic font-medium text-rose">Carvalho</span>
           </h1>
           <p className="mt-7 max-w-md text-lg leading-relaxed text-ink-muted">
             Estúdio de beleza em Aquiraz especializado em design de sobrancelhas,
