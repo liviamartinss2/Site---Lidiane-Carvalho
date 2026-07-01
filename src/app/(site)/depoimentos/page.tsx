@@ -6,7 +6,7 @@ export const revalidate = 300;
 
 export const metadata = {
   title: "Depoimentos — Lidiane Carvalho",
-  description: "Avaliações reais de clientes do estúdio Lidiane Carvalho em Aquiraz.",
+  description: "Avaliações reais de clientes da clínica Lidiane Carvalho em Aquiraz.",
 };
 
 export default async function DepoimentosPage() {
@@ -20,7 +20,7 @@ export default async function DepoimentosPage() {
         </span>
         <h1 className="h-serif mt-1 text-4xl">Clientes que confiam</h1>
         <p className="mx-auto mt-3 max-w-xl text-ink-muted">
-          A satisfação de quem passa pelo estúdio é o nosso maior orgulho.
+          A satisfação de quem passa pela clínica é o nosso maior orgulho.
         </p>
       </div>
 

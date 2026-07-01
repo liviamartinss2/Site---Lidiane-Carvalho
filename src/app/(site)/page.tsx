@@ -28,8 +28,9 @@ export default async function HomePage() {
             <span className="italic font-medium text-rose">Carvalho</span>
           </h1>
           <p className="mt-7 max-w-md text-lg leading-relaxed text-ink-muted">
-            Estúdio de beleza em Aquiraz especializado em design de sobrancelhas,
-            brow lamination, cílios e maquiagem. Agende online em menos de 1 minuto.
+            Clínica de sobrancelhas em Aquiraz especializada em design de
+            sobrancelhas, brow lamination, cílios e maquiagem. Agende online em
+            menos de 1 minuto.
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <Link href="/agendar" className="btn-primary px-8">

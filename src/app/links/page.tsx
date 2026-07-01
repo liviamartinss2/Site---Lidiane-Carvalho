@@ -6,9 +6,9 @@ import { Brilho } from "@/components/Brilho";
 import { FotoLidiane } from "@/components/FotoLidiane";
 
 export const metadata: Metadata = {
-  title: `${config.studioNome} — Links | Estúdio de Beleza em Aquiraz`,
+  title: `${config.studioNome} — Links | Clínica de Sobrancelhas em Aquiraz`,
   description:
-    "Todos os links do estúdio Lidiane Carvalho em um só lugar: agende seu horário, fale no WhatsApp, veja serviços, resultados e nos siga no Instagram.",
+    "Todos os links da clínica Lidiane Carvalho em um só lugar: agende seu horário, fale no WhatsApp, veja serviços, resultados e nos siga no Instagram.",
 };
 
 // ---------------------------------------------------------------------
@@ -150,7 +150,7 @@ export default function LinksPage() {
           <h1 className="mt-6 font-serif text-3xl font-semibold tracking-tightest text-ink">
             {config.studioNome}
           </h1>
-          <span className="eyebrow mt-2">Estúdio de Beleza · Aquiraz — CE</span>
+          <span className="eyebrow mt-2">Clínica de Sobrancelhas · Aquiraz — CE</span>
 
           <span className="selo-gold mt-5">★ {config.anosExperiencia} anos de experiência</span>
 

@@ -24,7 +24,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Lidiane Carvalho — Estúdio de Beleza | Sobrancelhas & Maquiagem em Aquiraz",
+  title: "Lidiane Carvalho — Clínica de Sobrancelhas | Sobrancelhas & Maquiagem em Aquiraz",
   description:
     "13 anos de experiência em design de sobrancelhas, brow lamination, lift de cílios e maquiagem em Aquiraz - CE. Agende seu horário online em menos de 1 minuto.",
   keywords: [
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     "Lidiane Carvalho",
   ],
   openGraph: {
-    title: "Lidiane Carvalho — Estúdio de Beleza",
+    title: "Lidiane Carvalho — Clínica de Sobrancelhas",
     description:
       "Sobrancelhas impecáveis e maquiagem sofisticada em Aquiraz. 13 anos de experiência.",
     type: "website",

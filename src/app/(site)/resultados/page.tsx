@@ -25,7 +25,7 @@ export default function ResultadosPage() {
         <h1 className="h-serif mt-1 text-4xl">Resultados reais</h1>
         <p className="mx-auto mt-3 max-w-xl text-ink-muted">
           Antes e depois de quem já viveu a experiência. (Substitua pelas fotos reais
-          do estúdio na área administrativa.)
+          da clínica na área administrativa.)
         </p>
       </div>
 

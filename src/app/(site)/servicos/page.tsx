@@ -6,7 +6,7 @@ import type { Categoria } from "@/lib/types";
 export const revalidate = 300;
 
 export const metadata = {
-  title: "Serviços — Lidiane Carvalho Estúdio de Beleza",
+  title: "Serviços — Lidiane Carvalho Clínica de Sobrancelhas",
   description:
     "Conheça os serviços: design de sobrancelhas, brow lamination, lift de cílios, revitalização labial e maquiagem em Aquiraz.",
 };

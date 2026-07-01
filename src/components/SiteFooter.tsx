@@ -8,7 +8,7 @@ export function SiteFooter() {
         <div>
           <h3 className="font-serif text-lg text-white">{config.studioNome}</h3>
           <p className="mt-2 text-sm text-cream/60">
-            Estúdio de Beleza · {config.anosExperiencia} anos de experiência
+            Clínica de Sobrancelhas · {config.anosExperiencia} anos de experiência
           </p>
         </div>
 

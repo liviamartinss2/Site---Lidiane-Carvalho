@@ -5,7 +5,7 @@ import { FotoLidiane } from "@/components/FotoLidiane";
 
 export const metadata = {
   title: "Sobre & Localização — Lidiane Carvalho",
-  description: "Conheça a história da Lidiane Carvalho e onde fica o estúdio em Aquiraz - CE.",
+  description: "Conheça a história da Lidiane Carvalho e onde fica a clínica em Aquiraz - CE.",
 };
 
 export default function SobrePage() {
@@ -27,7 +27,7 @@ export default function SobrePage() {
             cada cliente é cuidada de forma única.
           </p>
           <p className="mt-3 text-ink-muted">
-            O novo estúdio nasce para oferecer uma experiência sofisticada e
+            A nova clínica nasce para oferecer uma experiência sofisticada e
             acolhedora — do design de sobrancelhas à maquiagem para os seus momentos
             mais especiais.
           </p>
@@ -91,7 +91,7 @@ export default function SobrePage() {
 
           <div className="overflow-hidden rounded-xl2 border border-line shadow-soft">
             <iframe
-              title="Mapa do estúdio"
+              title="Mapa da clínica"
               src={`https://www.google.com/maps?q=${encodeURIComponent(
                 config.endereco
               )}&output=embed`}
