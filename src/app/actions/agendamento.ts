@@ -2,6 +2,7 @@
 
 import { createClient } from "@/lib/supabase/server";
 import { getServicoPorId, supabaseConfigurado } from "@/lib/data";
+import { config } from "@/lib/config";
 import { normalizarTelefone, formatData, formatHora } from "@/lib/format";
 
 /**
@@ -53,6 +54,14 @@ interface DadosAgendamento {
 export async function criarAgendamento(
   dados: DadosAgendamento
 ): Promise<ResultadoAgendamento> {
+  // Agendamento online desligado (manutenção) — bloqueia qualquer submissão.
+  if (!config.agendamentoOnline) {
+    return {
+      ok: false,
+      erro: "Agendamento online em manutenção. Fale com a gente pelo WhatsApp.",
+    };
+  }
+
   const nome = dados.nome.trim();
   const telefone = normalizarTelefone(dados.telefone);
 

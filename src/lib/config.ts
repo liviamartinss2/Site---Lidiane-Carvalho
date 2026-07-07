@@ -16,6 +16,13 @@ export const config = {
     process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? "https://instagram.com/lidianecarvalho",
   anosExperiencia: 13,
   reativacaoDias: Number(process.env.REATIVACAO_DIAS ?? 20),
+  /**
+   * Agendamento online. DESLIGADO enquanto o banco/produção não está resolvido
+   * (o fluxo depende do Supabase). Com ele desligado, o /agendar mostra um aviso
+   * direcionando para o WhatsApp. Para reativar: defina
+   * NEXT_PUBLIC_AGENDAMENTO_ONLINE=true (ou troque o padrão abaixo).
+   */
+  agendamentoOnline: process.env.NEXT_PUBLIC_AGENDAMENTO_ONLINE === "true",
 };
 
 /** Monta um link wa.me com mensagem pre-preenchida */
