@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { createClient } from "@/lib/supabase/server";
+import { createClient, createAdminClient } from "@/lib/supabase/server";
 import { supabaseConfigurado } from "@/lib/data";
 
 export interface ResultadoServico {
@@ -11,17 +11,18 @@ export interface ResultadoServico {
 
 async function guard(): Promise<{
   erro?: string;
-  supabase?: ReturnType<typeof createClient>;
+  supabase?: ReturnType<typeof createAdminClient>;
 }> {
   if (!supabaseConfigurado()) {
     return { erro: "Modo demonstração — conecte o Supabase para gerenciar serviços." };
   }
-  const supabase = createClient();
+  // Autentica pela sessão (cookie); os dados vão pelo service_role (ignora RLS).
+  const auth = createClient();
   const {
     data: { user },
-  } = await supabase.auth.getUser();
+  } = await auth.auth.getUser();
   if (!user) return { erro: "Sessão expirada. Faça login novamente." };
-  return { supabase };
+  return { supabase: createAdminClient() };
 }
 
 function revalidar() {

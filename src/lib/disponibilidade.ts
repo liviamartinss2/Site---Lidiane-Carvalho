@@ -1,4 +1,4 @@
-import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/server";
 import type { Disponibilidade } from "@/lib/types";
 
 const INTERVALO_SLOT_MIN = 30; // granularidade da grade (slots a cada 30 min)
@@ -22,7 +22,7 @@ export async function calcularSlotsDisponiveis(
   dataISO: string, // "2026-06-12"
   duracaoMin: number
 ): Promise<Slot[]> {
-  const supabase = createClient();
+  const supabase = createAdminClient();
 
   const [ano, mes, dia] = dataISO.split("-").map(Number);
   const data = new Date(ano, mes - 1, dia);

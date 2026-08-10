@@ -1,4 +1,4 @@
-import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/server";
 import { supabaseConfigurado, getServicos } from "@/lib/data";
 import { config } from "@/lib/config";
 import type { AgendamentoDetalhado, Bloqueio, Cliente, Servico } from "@/lib/types";
@@ -106,7 +106,7 @@ function demoMetricas(): MetricasDashboard {
 export async function getMetricasDashboard(): Promise<MetricasDashboard> {
   if (!supabaseConfigurado()) return demoMetricas();
 
-  const supabase = createClient();
+  const supabase = createAdminClient();
   const agora = new Date();
   const fimHoje = new Date();
   fimHoje.setHours(23, 59, 59, 999);
@@ -170,7 +170,7 @@ export async function getAgendaDoDia(dataISO: string): Promise<AgendamentoDetalh
       a.inicio.startsWith(dataISO.slice(0, 10))
     );
   }
-  const supabase = createClient();
+  const supabase = createAdminClient();
   const inicio = new Date(`${dataISO}T00:00:00`);
   const fim = new Date(`${dataISO}T23:59:59`);
   const { data } = await supabase
@@ -251,7 +251,7 @@ export async function getClientesCRM(): Promise<ClienteCRM[]> {
     return demo.map(calc);
   }
 
-  const supabase = createClient();
+  const supabase = createAdminClient();
   const { data } = await supabase
     .from("clientes")
     .select("*")
@@ -272,7 +272,7 @@ export async function getAgendaIntervalo(
       (a) => a.inicio >= deISO && a.inicio <= ateISO
     );
   }
-  const supabase = createClient();
+  const supabase = createAdminClient();
   const { data } = await supabase
     .from("agendamentos")
     .select(SELECT_AGENDAMENTO)
@@ -285,7 +285,7 @@ export async function getAgendaIntervalo(
 /** Todos os serviços (inclusive inativos) para gestão no painel */
 export async function getServicosAdmin(): Promise<Servico[]> {
   if (!supabaseConfigurado()) return getServicos();
-  const supabase = createClient();
+  const supabase = createAdminClient();
   const { data } = await supabase
     .from("servicos")
     .select("*")
@@ -296,7 +296,7 @@ export async function getServicosAdmin(): Promise<Servico[]> {
 /** Bloqueios de agenda futuros (folgas, almoço, compromissos, feriados) */
 export async function getBloqueios(): Promise<Bloqueio[]> {
   if (!supabaseConfigurado()) return [];
-  const supabase = createClient();
+  const supabase = createAdminClient();
   const inicioHoje = new Date();
   inicioHoje.setHours(0, 0, 0, 0);
   const { data } = await supabase

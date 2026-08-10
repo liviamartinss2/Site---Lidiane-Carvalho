@@ -1,6 +1,6 @@
 "use server";
 
-import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/server";
 import { getServicoPorId, supabaseConfigurado } from "@/lib/data";
 import { config } from "@/lib/config";
 import { normalizarTelefone, formatData, formatHora } from "@/lib/format";
@@ -83,7 +83,7 @@ export async function criarAgendamento(
     return { ok: true, inicioISO: inicio.toISOString() };
   }
 
-  const supabase = createClient();
+  const supabase = createAdminClient();
 
   // 1. cliente por telefone
   const { data: clienteExistente } = await supabase

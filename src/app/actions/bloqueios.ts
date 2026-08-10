@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { createClient } from "@/lib/supabase/server";
+import { createClient, createAdminClient } from "@/lib/supabase/server";
 import { supabaseConfigurado } from "@/lib/data";
 
 export interface ResultadoBloqueio {
@@ -25,11 +25,12 @@ export async function criarBloqueio(
     };
   }
 
-  const supabase = createClient();
+  const auth = createClient();
   const {
     data: { user },
-  } = await supabase.auth.getUser();
+  } = await auth.auth.getUser();
   if (!user) return { ok: false, erro: "Sessão expirada. Faça login novamente." };
+  const supabase = createAdminClient();
 
   const data = String(formData.get("data") ?? "");
   const diaInteiro = formData.get("dia_inteiro") === "on";
@@ -73,11 +74,12 @@ export async function criarBloqueio(
 export async function removerBloqueio(formData: FormData): Promise<void> {
   if (!supabaseConfigurado()) return;
 
-  const supabase = createClient();
+  const auth = createClient();
   const {
     data: { user },
-  } = await supabase.auth.getUser();
+  } = await auth.auth.getUser();
   if (!user) return;
+  const supabase = createAdminClient();
 
   const id = String(formData.get("id") ?? "");
   if (!id) return;
